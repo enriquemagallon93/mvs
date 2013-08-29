@@ -117,7 +117,7 @@ var mysql  = require("mysql"),
 			};
 
 		},
-		azureQuery:function(){
+		azureQueryGet:function(){
 			var blobService = azure.createBlobService(config.azure.cuenta,config.azure.llave);
 			/*blobService.createContainerIfNotExists('taskcontainer', {publicAccessLevel : 'blob'}, function(error){
     			if(!error){
@@ -132,6 +132,55 @@ var mysql  = require("mysql"),
 			        console.log(error)
 			    }
 			});*/
+			/*blobService.createBlockBlobFromFile(config.azure.contenedorBlob
+			    , 'audio'
+			    , 'test1.txt'
+			    , function(error){
+			        if(!error){
+			            // File has been uploaded
+			        }
+			    });*/
+				blobService.listBlobs(config.azure.contenedorBlob, function(error, blobs){
+				    if(!error){
+				        for(var index in blobs){
+				            console.log(blobs[index].name);
+				        }
+				    }
+				});
+
+
+		},
+		azureQuerySet:function(){
+			var blobService = azure.createBlobService(config.azure.cuenta,config.azure.llave);
+			/*blobService.createContainerIfNotExists('taskcontainer', {publicAccessLevel : 'blob'}, function(error){
+    			if(!error){
+        		// Container exists and is public
+        			return "blob creado";
+    			}
+    		});*/
+
+			/*blobService.createContainerIfNotExists("media", function(error){
+			    if(!error){
+			        // Container exists and is private
+			        console.log(error)
+			    }
+			});*/
+			/*blobService.createBlockBlobFromFile(config.azure.contenedorBlob
+			    , 'audio'
+			    , 'test1.txt'
+			    , function(error){
+			        if(!error){
+			            // File has been uploaded
+			        }
+			    });*/
+				blobService.listBlobs(config.azure.contenedorBlob, function(error, blobs){
+				    if(!error){
+				        for(var index in blobs){
+				            console.log(blobs[index].name);
+				        }
+				    }
+				});
+
 
 		}
 	}
