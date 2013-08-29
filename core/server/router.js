@@ -13,6 +13,7 @@ var post = "";
 				data=qs.parse(query);
 				var pathname = myUrl.pathname;
 				contenido=router.route(pathname,handle,data,request);
+				console.log(contenido)
 				response.end("_testcb("+contenido+")");
 			}
 			http.createServer(onRequest).listen(3030);

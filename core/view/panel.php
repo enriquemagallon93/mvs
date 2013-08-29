@@ -29,7 +29,7 @@ $(document).ready(function(){
       	<li id="tabs"><a href="#micrositio" data-toggle="tab" class="tab_micrositio" id="tab_select"><img src="img/micrositioChica.png">Micrositios</a></li>
       	<li class="nav-header">Opciones</li>
       	<li id="tabs"><a href="#Rinicio" data-toggle="tab"><img src="img/advertenciaChica.png">Redefinir Inicio</a></li>
-      	<li id="tabs"><a href="#salir" data-toggle="tab"><img src="img/iconMenuSalir.png">Salir</a></li>
+      	<li id="tabs"><a href="#salir" data-toggle="tab" id="salir"><img src="img/iconMenuSalir.png">Salir</a></li>
       	<li id="tabs"><a href="#salir" data-toggle="tab"><img src="img/panelLeftPowered.gif" style="float:right;"></a></li>
 	  </ul>
     </div>

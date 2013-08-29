@@ -25,15 +25,17 @@ var mysql  = require("mysql"),
 
 		},
 		LoginUser:function(data){
+			//console.log(data)
 			var connection=mysql.createConnection(config.mysql);
 			connection.connect();
-			connection.query("SELECT count(*) FROM usuarios WHERE usuario_login="+data["user"]+" and usuario_password="+data["pass"]+" ",
+			connection.query("SELECT count(*) as validate FROM usuarios WHERE usuario_login='"+data["user"]+"' and usuario_password='"+data["pass"]+"' ",
 					function(err,result,fields){
 						if(err){
-							return "hay un error";
+							return "0";
 							connection.end();
 						}
 						else{
+							//console.log(result[0].validate);
 							select=result;
 						}
 					}
@@ -46,7 +48,8 @@ var mysql  = require("mysql"),
 		InsertAjax:function(data){
 			var connection=mysql.createConnection(config.mysql);
 			connection.connect();
-			connection.query("INSERT INTO "+data["tabla"]+" () VALUES () ",
+			sql=request.queryInsert(data);
+			connection.query(sql,
 					function(err,result,fields){
 						if (err) {
 							return "Error Guardar datos";
@@ -59,6 +62,65 @@ var mysql  = require("mysql"),
 				);
 		},
 		querySelect:function(data){
+			switch(data["tabla"]){
+				case "tiponoticia":
+					return "INSERT INTO "+data["tabla"]+" () VALUES () "
+				break;
+				case "fuentes":
+					return "SELECT * FROM "+data["tabla"]+" ORDER BY fuente_id DESC"
+				break;
+				case "noticias":
+					return "SELECT * FROM "+data["tabla"]+" ORDER BY noticia_id DESC"
+				break;
+				case "programas":
+					return "SELECT * FROM "+data["tabla"]+" ORDER BY programa_id DESC"
+				break;
+				case "locutores":
+					return "SELECT * FROM "+data["tabla"]+" ORDER BY locutor_id DESC"
+				break;
+				case "usuarios":
+					return "SELECT * FROM "+data["tabla"]+"  WHERE usuario_login='"+data["user"]+"' usuario_password='"+data["pass"]+"' "
+				break;
+				case "entrevistas":
+					return
+				break;
+				case "podcast":
+					return
+				break;
+				case "resumenes":
+					return
+				break;
+				case "blogs":
+					return
+				break;
+				case "posts":
+					return
+				break;
+				case "galeria":
+					return
+				break;
+				case "videos":
+					return
+				break;
+				case "usuarios":
+					return
+				break;
+				case "roles":
+					return
+				break;
+				case "bitacora":
+					return
+				break;
+				case "micrositio":
+					return
+				break;
+				/*case :
+					return
+				break;*/
+			};
+
+		},
+		queryInsert:function(){
 			switch(data["tabla"]){
 				case "tiponoticia":
 					return "SELECT * FROM "+data["tabla"]+" ORDER BY tiponoticia_id DESC"
@@ -115,7 +177,6 @@ var mysql  = require("mysql"),
 					return
 				break;*/
 			};
-
 		},
 		azureQueryGet:function(){
 			var blobService = azure.createBlobService(config.azure.cuenta,config.azure.llave);
