@@ -224,7 +224,8 @@ textarea {
 body {
   margin: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  /*modificado*/
+  font-size: 13px;
   line-height: 20px;
   color: #333333;
   background-color: #ffffff;
@@ -318,6 +319,10 @@ a:focus {
 
 .span6 {
   width: 460px;
+  /**modificar*/
+  background: #eee;
+  border-radius: 5px;
+  padding-top: 30px;
 }
 
 .span5 {
@@ -409,8 +414,14 @@ a:focus {
   float: left;
   width: 100%;
   min-height: 30px;
-  margin-left: 2.127659574468085%;
-  *margin-left: 2.074468085106383%;
+  /*modificado*/
+  /*margin-left: 2.127659574468085%;
+  *margin-left: 2.074468085106383%;*/
+   margin-left: 0px;
+  *margin-left: 0px;
+  margin-right: 13px;
+  *margin-right: 13px;
+
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
           box-sizing: border-box;
@@ -442,6 +453,10 @@ a:focus {
 .row-fluid .span9 {
   width: 74.46808510638297%;
   *width: 74.41489361702126%;
+  background: url("../img/contentBackLogo.jpg") no-repeat;
+  background-position: center;
+  padding-bottom: 10px;
+
 }
 
 .row-fluid .span8 {
@@ -472,16 +487,28 @@ a:focus {
 .row-fluid .span3 {
   width: 23.404255319148934%;
   *width: 23.351063829787233%;
+  background: #eee;
+  /*modificado*/
+  border-radius: 5px;
 }
 
 .row-fluid .span2 {
   width: 14.893617021276595%;
   *width: 14.840425531914894%;
+  /*modificado*/
+    background: #eee;
+    border-radius: 5px;
+    padding: 15px 0px 0px 0px;
+    text-align: center;
+    height: 102px;
+    margin-bottom: 50px;
 }
 
 .row-fluid .span1 {
   width: 6.382978723404255%;
   *width: 6.329787234042553%;
+  background: #eee;
+    border-radius: 5px;
 }
 
 .row-fluid .offset12 {
@@ -804,9 +831,11 @@ h4 small {
 }
 
 .page-header {
+  /*modificado*/
   padding-bottom: 9px;
-  margin: 20px 0 30px;
+  margin: 0px 0 30px;
   border-bottom: 1px solid #eeeeee;
+  background: url("../img/topBarHologram.jpg")
 }
 
 ul,
@@ -2012,7 +2041,7 @@ table {
   line-height: 20px;
   text-align: left;
   vertical-align: top;
-  border-top: 1px solid #dddddd;
+  /*border-top: 1px solid #dddddd;*/
 }
 
 .table th {
@@ -6164,4 +6193,25 @@ a.badge:focus {
 
 .affix {
   position: fixed;
+}
+.span2:hover{
+  background: #c1c1c1;
+}
+table.table-bordered thead tr td{
+  background: #0088cc;
+  color: white;
+}
+.table-bordered td{
+  text-align: center;
+}
+.table-bordered img{
+  max-width: 55px;
+  max-height: 55px;
+  /*margin-left: 50px;*/
+}
+.span9 #agregar{
+  margin-left: 15px;
+}
+.modal input{
+  /*margin-left: 10px;*/
 }
